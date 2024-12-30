@@ -4,6 +4,7 @@
 4. [K8S 流量的治理](./README.md/#k8s-流量的治理)
 5. [502 Bad Gateway 错误分析](./README.md/#502-bad-gateway-错误分析)
 6. [504 Gateway Timeout 错误分析](./README.md/#504-gateway-timeout-错误分析)
+7. [Redis 的四种模式分析对比](./README.md/#redis-的四种模式分析对比)
 
 ---
 
