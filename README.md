@@ -2,7 +2,7 @@
 2. [MySQL 主从架构简述](./README.md/#mysql-主从架构简述)
 3. [Redis 的四种模式分析对比](./README.md/#redis-的四种模式分析对比)
 4. [K8S 组件组成](./README.md/#k8s-组件组成)
-5. [K8S 不同应用 DaemonSet、Deployment、StatefulSet 和 ReplicaSet 的区别](./README.md/#k8s-不同应用-daemonsetdeploymentstatefulset-和-replicaset-的区别)
+5. [K8S DaemonSet、Deployment、StatefulSet 和 ReplicaSet Pod 区别](./README.md/#k8s-daemonsetdeploymentstatefulset-和-replicaset-pod-区别)
 6. [K8S 流量的治理](./README.md/#k8s-流量的治理)
 7. [K8S 客户端访问完整过程](./README.md/#k8s-客户端访问完整过程)
 8. [K8S Pod 调度规则/限制](./README.md/#k8s-pod-调度规则限制)
@@ -88,13 +88,13 @@
 
 ---
 
-# K8S 不同应用 DaemonSet、Deployment、StatefulSet 和 ReplicaSet 的区别
+# K8S DaemonSet、Deployment、StatefulSet 和 ReplicaSet Pod 区别
 
 | 特性             | **DaemonSet**                                 | **Deployment**                            | **StatefulSet**                              | **ReplicaSet**                         |
 | ---------------- | --------------------------------------------- | ----------------------------------------- | -------------------------------------------- | -------------------------------------- |
-| **用途**         | 确保每个节点运行一个 Pod 副本                 | 管理无状态应用，确保指定副本数的 Pod 存在 | 管理有状态应用，提供稳定标识和存储           | 确保指定副本数的 Pod 副本存在          |
+| **用途**         | 每个节点运行一个 Pod               | 无状态应用 | 管理有状态应用，提供稳定标识和存储           | 确保指定副本数的 Pod 副本存在          |
 | **副本数**       | 每个节点一个 Pod 副本                         | 动态调整副本数                            | 固定副本数，每个 Pod 有稳定标识              | 动态调整副本数                         |
-| **Pod 标识**     | 每个 Pod 都有唯一的、稳定的名称               | Pod 无固定标识，副本可以相同              | 每个 Pod 有唯一的名称和标识                  | Pod 无固定标识，副本可以相同           |
+| **Pod 标识**     | 每个 Pod 都有唯一名称               | Pod 无固定标识，副本可以相同              | 每个 Pod 有唯一的名称和标识                  | Pod 无固定标识，副本可以相同           |
 | **存储**         | 无持久化存储                                  | 无持久化存储                              | 提供持久化存储（每个 Pod 都有持久化存储）    | 无持久化存储                           |
 | **网络标识**     | 每个 Pod 都有稳定的网络标识                   | Pod 的网络标识随调度改变                  | 每个 Pod 的网络标识稳定且唯一                | Pod 的网络标识随调度改变               |
 | **用途场景**     | 运行集群级别的服务，如日志收集、监控          | 无状态服务，如 Web 应用，API 服务器       | 有状态服务，如数据库，分布式缓存             | 无状态服务，如 Web 应用，API 服务器    |
