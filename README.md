@@ -1,13 +1,26 @@
-1. [TCP 与 UDP 对比分析](./README.md/#tcp-与-udp-对比分析)
-2. [MySQL 主从架构简述](./README.md/#mysql-主从架构简述)
-3. [Redis 的四种模式分析对比](./README.md/#redis-的四种模式分析对比)
-4. [K8S 核心组件](./README.md/#k8s-核心组件)
-5. [K8S DaemonSet、Deployment、StatefulSet 和 ReplicaSet Pod 区别](./README.md/#k8s-daemonsetdeploymentstatefulset-和-replicaset-pod-区别)
-6. [K8S 流量的治理](./README.md/#k8s-流量的治理)
-7. [K8S 客户端访问完整过程](./README.md/#k8s-客户端访问完整过程)
-8. [K8S Pod 调度规则/限制](./README.md/#k8s-pod-调度规则限制)
-9. [502 Bad Gateway 错误分析](./README.md/#502-bad-gateway-错误分析)
-10. [504 Gateway Timeout 错误分析](./README.md/#504-gateway-timeout-错误分析)
+1. [OSI七层模型 vs TCP/IP四层模型](./README.md/#osi七层模型-vs-tcpip四层模型)
+2. [TCP 与 UDP 对比分析](./README.md/#tcp-与-udp-对比分析)
+3. [MySQL 主从架构简述](./README.md/#mysql-主从架构简述)
+4. [Redis 的四种模式分析对比](./README.md/#redis-的四种模式分析对比)
+5. [K8S 核心组件](./README.md/#k8s-核心组件)
+6. [K8S DaemonSet、Deployment、StatefulSet 和 ReplicaSet Pod 区别](./README.md/#k8s-daemonsetdeploymentstatefulset-和-replicaset-pod-区别)
+7. [K8S 流量的治理](./README.md/#k8s-流量的治理)
+8. [K8S 客户端访问完整过程](./README.md/#k8s-客户端访问完整过程)
+9. [K8S Pod 调度规则/限制](./README.md/#k8s-pod-调度规则限制)
+10. [502 Bad Gateway 错误分析](./README.md/#502-bad-gateway-错误分析)
+11. [504 Gateway Timeout 错误分析](./README.md/#504-gateway-timeout-错误分析)
+-------------
+# OSI七层模型 vs TCP/IP四层模型
+
+| 网络模型     | **OSI 七层模型**   | **TCP/IP 四层模型**   | **对应协议**                                                   |
+|--------------|--------------------|-----------------------|---------------------------------------------------------------|
+| **应用层**   | 应用层             | 应用层                | HTTP, FTP, SMTP, DNS, POP3, IMAP, TELNET |
+| **表示层**   | 表示层             | -                     | - |
+| **会话层**   | 会话层             | -                     | - |
+| **传输层**   | 传输层             | 传输层                | TCP, UDP |
+| **网络层**   | 网络层             | 网络层                | IP, ICMP, ARP, RIP |
+| **数据链路层** | 数据链路层         | 数据链路层                | - |
+| **物理层**   | 物理层             | 数据链路层                | - |
 
 ---
 > # TCP 与 UDP 对比分析
