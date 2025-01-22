@@ -9,7 +9,8 @@
 9. [K8S Pod 调度规则/限制](./README.md/#k8s-pod-调度规则限制)
 10. [502 Bad Gateway 错误分析](./README.md/#502-bad-gateway-错误分析)
 11. [504 Gateway Timeout 错误分析](./README.md/#504-gateway-timeout-错误分析)
--------------
+
+---
 # OSI七层模型 vs TCP/IP四层模型
 
 | 网络模型     | **OSI 七层模型**   | **TCP/IP 四层模型**   | **对应协议**                                                   |
