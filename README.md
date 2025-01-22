@@ -25,8 +25,8 @@
 ## 1. 启用方式
 
 - **主库配置**：
-  - 开启二进制日志 (`binlog`)。设置唯一的 `server ID`。
-  - 创建具有 `REPLICATION SLAVE` 权限的复制账户。
+  1. 开启二进制日志 (`binlog`)。设置唯一的 `server ID`。
+  2. 创建具有 `REPLICATION SLAVE` 权限的复制账户。
 - **从库配置**：
   - 设置唯一的 `server ID`。
   - 启用复制功能，记录主库的日志文件和位置来启动复制。
