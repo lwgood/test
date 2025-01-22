@@ -9,7 +9,8 @@
 9. [K8S Pod 调度规则/限制](./README.md/#k8s-pod-调度规则限制)
 10. [502 Bad Gateway 错误分析](./README.md/#502-bad-gateway-错误分析)
 11. [504 Gateway Timeout 错误分析](./README.md/#504-gateway-timeout-错误分析)
-12. [如何检测和防止SQL注入攻击]
+12. [如何避免SQL注入攻击](./README.md/#如何避免SQL注入攻击)
+13. [如何避免DDoS攻击](./README.md/#如何避免ddos攻击)
 
 ---
 # OSI七层模型 vs TCP/IP四层模型
@@ -146,7 +147,7 @@
 7. 外部依赖服务响应问题
 
 ---
-# 如何检测和防止SQL注入攻击
+# 如何避免SQL注入攻击
 - SQL注入攻击通过在SQL查询中插入恶意SQL代码来执行未经授权的操作。防止SQL注入的方法包括使用预编译语句（prepared statements）、参数化查询、输入验证、最小权限数据库账户等。
 
 ---
