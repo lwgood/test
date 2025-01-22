@@ -90,41 +90,26 @@
 ---
 # K8S 流量的治理
 - 1. **Service**: 为 Pod 提供统一的访问入口，负责将流量分发到后端的 Pod。
-- 2. Ingress
-
-- 管理外部 HTTP/HTTPS 流量，根据 URL 路径或主机名将流量路由到不同的服务。
-
-## 3. 亲和、反亲和（Affinity & Anti-affinity）
-
-- 通过亲和、反亲和控制 Pod 如何在集群中调度，确保某些 Pod 必须或避免运行在特定节点上，从而优化流量分布。
-
-## 4. 服务网格 (Service Mesh)
-
-- 服务网格如 `Istio` 提供流量路由、负载均衡、限流，灵活控制和监控微服务之间的流量。
-
-## 5. HPA 自动扩缩容 (Horizontal Pod Autoscaler)
-
-- 根据 CPU、内存使用或自定义指标动态调整 Pod 数量，确保集群能根据流量水平自动伸缩。
-
-### Kubernetes 实现流量治理主要依靠下面几种方式：
-
-- Service 和 Ingress）确保流量均匀分配到集群中的各个 Pod。
-- 亲和性确保某些请求始终路由到同一 Pod。
-- 服务网格控制 Pod 间的流量，更高级的流量路由、策略控制和监控能力。
-- HPA 根据流量水平动态扩缩容，保证资源的弹性伸缩。
+- 2. **Ingress**: 管理外部 HTTP/HTTPS 流量，根据 URL 路径或主机名将流量路由到不同的服务。
+- 3. **Affinity & Anti-affinity**: 通过亲和、反亲和控制 Pod 如何在集群中调度，确保某些 Pod 必须或避免运行在特定节点上，从而优化流量分布。
+- 4. **Service Mesh**: 服务网格如 `Istio` 提供流量路由、负载均衡、限流，灵活控制和监控微服务之间的流量。
+- 5. **HPA 自动扩缩容**: 根据 CPU、内存使用或自定义指标动态调整 Pod 数量，确保集群能根据流量水平自动伸缩。
 
 ---
 # K8S 客户端访问完整过程
-
-客户端请求域名 --> 2. DNS 解析 --> 3. CNAME 解析为负载均衡器地址 --> 4. 负载均衡器转发流量到 Ingress 控制器
---> 5. Ingress 控制器根据路由规则处理请求 --> 6. Ingress 路由流量到 Service --> 7. Service 路由流量到 Pod
---> 8. Pod 处理请求并生成响应 --> 9. 响应通过 Service 返回 --> 10. 响应通过 Ingress 或负载均衡器返回客户端
+- 1. 客户端请求域名
+- 2. DNS 解析 --> CNAME 解析为负载均衡器地址
+- 3. 负载均衡器转发流量到 Ingress 控制器
+- 4. Ingress 控制器根据路由规则处理请求
+- 5. Ingress 路由流量到 Service
+- 6. Service 路由流量到 Pod
+- 7. Pod 处理请求并生成响应
 
 ---
 > # K8S Pod 调度规则/限制
-1. **Node Affinity (节点亲和性)**，通过 `nodeAffinity` 设置调度规则，强制或软性限制 Pod 不被调度到特定节点。
-2. **Taints**，在节点上设置污点（Taint），阻止 Pod 调度到该节点。
-3. **PodAntiAffinity (Pod 反亲和性)**，设置 Pod 之间的反亲和性，避免 Pod 调度到与其他特定 Pod 相同的节点。
+1. **Node Affinity (节点亲和性)**: 通过 `nodeAffinity` 设置调度规则，强制或软性限制 Pod 不被调度到特定节点。
+2. **Taints**: 在节点上设置污点（Taint），阻止 Pod 调度到该节点。
+3. **PodAntiAffinity (Pod 反亲和性)**: 设置 Pod 之间的反亲和性，避免 Pod 调度到与其他特定 Pod 相同的节点。
 
 ---
 > # 502 Bad Gateway 原因分析
